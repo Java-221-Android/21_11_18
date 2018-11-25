@@ -15,6 +15,7 @@ public interface IListView extends MvpView {
     void removeContact(int position);
     void updateContact(int position, ContactViewModel contact);
     void addContact(int position, ContactViewModel contact);
+    void showEmptyList();
     void showInfoView();
     void showEditView();
 }

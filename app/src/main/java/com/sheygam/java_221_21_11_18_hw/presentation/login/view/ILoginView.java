@@ -2,12 +2,14 @@ package com.sheygam.java_221_21_11_18_hw.presentation.login.view;
 
 import com.arellomobile.mvp.MvpView;
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy;
+import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy;
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType;
 
-@StateStrategyType(value = AddToEndSingleStrategy.class)
+@StateStrategyType(value = OneExecutionStateStrategy.class)
 public interface ILoginView extends MvpView {
     public void showProgress();
     public void hideProgress();
+
     public void showEmailValidError(String error);
     public void showPassValidError(String error);
     public void showNextView();
