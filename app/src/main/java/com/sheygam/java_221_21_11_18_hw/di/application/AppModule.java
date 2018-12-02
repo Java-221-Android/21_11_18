@@ -3,6 +3,7 @@ package com.sheygam.java_221_21_11_18_hw.di.application;
 import android.content.Context;
 
 import com.sheygam.java_221_21_11_18_hw.data.provider.Api;
+import com.sheygam.java_221_21_11_18_hw.data.provider.ApiV2;
 import com.sheygam.java_221_21_11_18_hw.data.provider.store.IStoreProvider;
 import com.sheygam.java_221_21_11_18_hw.data.provider.store.SPStoreProvider;
 
@@ -12,6 +13,7 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
@@ -43,6 +45,18 @@ public class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(Api.class);
+    }
+
+    @Provides
+    @Singleton
+    ApiV2 provideApiV2(OkHttpClient client){
+        return new Retrofit.Builder()
+                .client(client)
+                .baseUrl("https://contacts-telran.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+                .create(ApiV2.class);
     }
 
     @Provides

@@ -7,6 +7,7 @@ import com.sheygam.java_221_21_11_18_hw.di.application.AppModule;
 import com.sheygam.java_221_21_11_18_hw.di.application.DaggerAppComponent;
 import com.sheygam.java_221_21_11_18_hw.di.login.LoginComponent;
 import com.sheygam.java_221_21_11_18_hw.di.login.LoginModule;
+import com.sheygam.java_221_21_11_18_hw.di.login.RxLoginModule;
 
 public class App extends Application {
     private static App app;
@@ -30,7 +31,7 @@ public class App extends Application {
 
     }
 
-    public LoginComponent plus(LoginModule module){
+    public LoginComponent plus(RxLoginModule module){
         if (loginComponent == null){
             loginComponent = component.plus(module);
         }

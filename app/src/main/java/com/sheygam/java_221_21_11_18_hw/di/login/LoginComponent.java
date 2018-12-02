@@ -4,7 +4,7 @@ import com.sheygam.java_221_21_11_18_hw.presentation.login.presenter.LoginPresen
 
 import dagger.Subcomponent;
 
-@Subcomponent(modules = {LoginModule.class})
+@Subcomponent(modules = {RxLoginModule.class})
 @LoginScope
 public interface LoginComponent {
     void inject(LoginPresenter presenter);
